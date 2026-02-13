@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Topik</title>
+    <link rel="stylesheet" href="/FINAL/public/assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h2>🏷️ Data Topik</h2>
+            <p>Kelola topik penelitian yang tersedia</p>
+        </div>
+
+        <div class="btn-group">
+            <a href="/FINAL/public/topik/create" class="btn btn-primary">+ Tambah Topik</a>
+            <a href="/FINAL/public/" class="btn btn-secondary">← Kembali ke Beranda</a>
+        </div>
+
+        {% if topik %}
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Kode Topik</th>
+                        <th style="width: 50%;">Nama Topik</th>
+                        <th style="width: 30%;">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for t in topik %}
+                    <tr>
+                        <td><strong>{{ t.kode_topik }}</strong></td>
+                        <td>{{ t.nama_topik }}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <a href="/FINAL/public/topik/edit/{{ t.kode_topik }}" class="btn-edit">✏️ Edit</a>
+                                <a href="/FINAL/public/topik/delete/{{ t.kode_topik }}" class="btn-delete" onclick="return confirm('Yakin ingin menghapus?')">🗑️ Hapus</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="table-wrapper">
+            <div class="empty-state">
+                <div class="empty-state-icon">📭</div>
+                <h3>Tidak ada data topik</h3>
+                <p>Mulai dengan menambahkan topik baru</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

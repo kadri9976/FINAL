@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Jurnal</title>
+    <link rel="stylesheet" href="/FINAL/public/assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h2>📚 Data Jurnal</h2>
+            <p>Kelola dan cari data jurnal penelitian</p>
+        </div>
+
+        <div class="btn-group">
+            <a href="/FINAL/public/jurnal/create" class="btn btn-primary">+ Tambah Jurnal</a>
+            <a href="/FINAL/public/" class="btn btn-secondary">← Kembali ke Beranda</a>
+        </div>
+
+        <div class="search-box">
+            <form method="GET" action="/FINAL/public/jurnal">
+                <input type="text" name="cari" placeholder="🔍 Cari judul jurnal...">
+                <button type="submit">Cari</button>
+            </form>
+        </div>
+
+        {% if jurnal %}
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kode</th>
+                        <th>Judul</th>
+                        <th>Kata Kunci</th>
+                        <th>Program Studi</th>
+                        <th>Topik</th>
+                        <th>Tahun</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for j in jurnal %}
+                    <tr>
+                        <td><strong>{{ j.kode_jurnal }}</strong></td>
+                        <td>{{ j.judul }}</td>
+                        <td><span class="badge badge-primary">{{ j.kata_kunci }}</span></td>
+                        <td>{{ j.kode_program_studi }}</td>
+                        <td>{{ j.kode_topik }}</td>
+                        <td><span class="badge badge-success">{{ j.tahun }}</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <a href="/FINAL/public/jurnal/delete/{{ j.kode_jurnal }}" class="btn-delete" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="table-wrapper">
+            <div class="empty-state">
+                <div class="empty-state-icon">📭</div>
+                <h3>Tidak ada data jurnal</h3>
+                <p>Mulai dengan menambahkan jurnal baru</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

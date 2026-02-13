@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Program Studi</title>
+    <link rel="stylesheet" href="/FINAL/public/assets/css/style.css">
+    <style>
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+            background-color: #f8f9ff;
+        }
+
+        .form-group input:disabled {
+            background-color: #f5f5f5;
+            cursor: not-allowed;
+            color: #666;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .form-actions button,
+        .form-actions a {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .form-actions button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .form-actions button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .form-actions a {
+            background: #6c757d;
+            color: white;
+        }
+
+        .form-actions a:hover {
+            background: #5a6268;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h2>✏️ Edit Program Studi</h2>
+            <p>Ubah informasi program studi</p>
+        </div>
+
+        <div class="form-container">
+            <form method="POST" action="/FINAL/public/program-studi/update/{{ programStudi.kode_program_studi }}">
+                <div class="form-group">
+                    <label for="kode">Kode Program Studi:</label>
+                    <input type="text" id="kode" name="kode" value="{{ programStudi.kode_program_studi }}" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="nama">Nama Program Studi:</label>
+                    <input type="text" id="nama" name="nama" value="{{ programStudi.nama_program_studi }}" required placeholder="Misal: Teknik Informatika">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit">💾 Perbarui</button>
+                    <a href="/FINAL/public/program-studi">← Batal</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

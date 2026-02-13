@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repositori Jurnal</title>
+    <link rel="stylesheet" href="/FINAL/public/assets/css/style.css">
+    <style>
+        .welcome-section {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .welcome-section h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .welcome-section p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .menu-card-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .menu-card h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .menu-card p {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .menu-card a {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .menu-card a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .features {
+            margin-top: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            color: white;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .features h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .feature-item-icon {
+            font-size: 2em;
+            flex-shrink: 0;
+        }
+
+        .feature-item-text h4 {
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .feature-item-text p {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-section">
+            <h1>📚 Repositori Jurnal</h1>
+            <p>Sistem Manajemen Jurnal Penelitian Terpadu</p>
+        </div>
+
+        <div class="menu-grid">
+            <div class="menu-card">
+                <span class="menu-card-icon">🎓</span>
+                <h3>Program Studi</h3>
+                <p>Kelola dan lihat daftar semua program studi yang tersedia di institusi</p>
+                <a href="/FINAL/public/program-studi">Buka →</a>
+            </div>
+
+            <div class="menu-card">
+                <span class="menu-card-icon">🏷️</span>
+                <h3>Topik Penelitian</h3>
+                <p>Atur topik penelitian dan kategorisasi penelitian jurnal</p>
+                <a href="/FINAL/public/topik">Buka →</a>
+            </div>
+
+            <div class="menu-card">
+                <span class="menu-card-icon">📖</span>
+                <h3>Data Jurnal</h3>
+                <p>Kelola, cari, dan lihat semua artikel jurnal penelitian</p>
+                <a href="/FINAL/public/jurnal">Buka →</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>✨ Fitur Utama</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-item-icon">➕</div>
+                    <div class="feature-item-text">
+                        <h4>Tambah Data</h4>
+                        <p>Mudah menambahkan data jurnal, topik, dan program studi baru</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-item-icon">✏️</div>
+                    <div class="feature-item-text">
+                        <h4>Edit Data</h4>
+                        <p>Perbarui informasi data yang sudah ada dengan mudah</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-item-icon">🗑️</div>
+                    <div class="feature-item-text">
+                        <h4>Hapus Data</h4>
+                        <p>Hapus data yang sudah tidak diperlukan dari sistem</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-item-icon">🔍</div>
+                    <div class="feature-item-text">
+                        <h4>Cari Jurnal</h4>
+                        <p>Fitur pencarian untuk menemukan jurnal dengan mudah</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-item-icon">📱</div>
+                    <div class="feature-item-text">
+                        <h4>Responsif</h4>
+                        <p>Desain responsif yang bekerja di semua perangkat</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-item-icon">🎨</div>
+                    <div class="feature-item-text">
+                        <h4>UI Modern</h4>
+                        <p>Antarmuka yang modern dan mudah digunakan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

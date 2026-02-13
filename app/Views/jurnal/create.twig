@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Jurnal</title>
+    <link rel="stylesheet" href="/FINAL/public/assets/css/style.css">
+    <style>
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+            background-color: #f8f9ff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .form-actions button,
+        .form-actions a {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+        }
+
+        .form-actions button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .form-actions button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .form-actions a {
+            background: #6c757d;
+            color: white;
+        }
+
+        .form-actions a:hover {
+            background: #5a6268;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h2>➕ Tambah Jurnal Baru</h2>
+            <p>Masukkan data jurnal penelitian</p>
+        </div>
+
+        <div class="form-container">
+            <form method="POST" action="/FINAL/public/jurnal/store">
+                <div class="form-group">
+                    <label for="kode">Kode Jurnal:</label>
+                    <input type="text" id="kode" name="kode" required placeholder="Misal: JRN001">
+                </div>
+
+                <div class="form-group">
+                    <label for="judul">Judul:</label>
+                    <input type="text" id="judul" name="judul" required placeholder="Masukkan judul jurnal">
+                </div>
+
+                <div class="form-group">
+                    <label for="kata_kunci">Kata Kunci:</label>
+                    <textarea id="kata_kunci" name="kata_kunci" required placeholder="Masukkan kata kunci (pisahkan dengan koma)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="abstrak">Abstrak:</label>
+                    <textarea id="abstrak" name="abstrak" required placeholder="Masukkan abstrak/ringkasan jurnal"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="program_studi">Program Studi:</label>
+                    <select id="program_studi" name="program_studi" required>
+                        <option value="">-- Pilih Program Studi --</option>
+                        {% for ps in programStudi %}
+                        <option value="{{ ps.kode_program_studi }}">{{ ps.nama_program_studi }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="topik">Topik:</label>
+                    <select id="topik" name="topik" required>
+                        <option value="">-- Pilih Topik --</option>
+                        {% for t in topik %}
+                        <option value="{{ t.kode_topik }}">{{ t.nama_topik }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="periode">Periode:</label>
+                    <input type="text" id="periode" name="periode" required placeholder="Misal: Semester 1">
+                </div>
+
+                <div class="form-group">
+                    <label for="tahun">Tahun:</label>
+                    <input type="number" id="tahun" name="tahun" required placeholder="Misal: 2024" min="2000" max="2100">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit">💾 Simpan</button>
+                    <a href="/FINAL/public/jurnal">← Batal</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
